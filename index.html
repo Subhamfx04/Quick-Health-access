@@ -1,114 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Healthcare Support Platform</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthCare+ Platform</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<style>
+/* ==================================================
+   PROFESSIONAL CSS – Healthcare Platform
+================================================== */
 
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+/* Google Font Style Feel */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: #f4f7fb;
+    color: #2d3748;
+}
+
+/* Color Variables */
+:root{
+    --primary:#0b5ed7;
+    --secondary:#198754;
+    --accent:#ffc107;
+    --danger:#dc3545;
+    --dark:#1f2933;
+    --light:#ffffff;
+    --shadow:0 15px 35px rgba(0,0,0,0.08);
+    --radius:12px;
+}
+
+/* Page Control */
+.page{
+    display:none;
+}
+.active{
+    display:block;
+}
+
+/* ==================================================
+   NAVBAR
+================================================== */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    background: linear-gradient(90deg,var(--primary),var(--secondary));
+    padding:16px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.logo{
+    color:#fff;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    position:relative;
+    cursor:pointer;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#ffc107;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* ==================================================
+   HERO
+================================================== */
+.hero{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    color:#fff;
+    background:linear-gradient(
+        rgba(11,94,215,0.85),
+        rgba(25,135,84,0.85)
+    );
+}
+
+.hero h1{
+    font-size:44px;
+    max-width:800px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin-bottom:30px;
+    opacity:0.95;
+}
+
+/* Buttons */
+.btn{
+    padding:14px 34px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(255,193,7,0.4);
+}
+
+.btn-danger{
+    background:var(--danger);
+    color:#fff;
+}
+
+/* ==================================================
+   SERVICES
+================================================== */
+.services{
+    padding:80px 50px;
+    text-align:center;
+}
+
+.services h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-subtitle{
+    color:#6b7280;
+    margin-bottom:40px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    transition:0.3s;
+    cursor:pointer;
+    text-align:left;
+    border-left:5px solid var(--primary);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+}
+
+/* Priority Doctor */
+.priority-service{
+    background:linear-gradient(135deg,#dc3545,#b02a37);
+    color:#fff;
+    padding:35px;
+    border-radius:var(--radius);
+    margin-bottom:50px;
+    box-shadow:0 20px 40px rgba(220,53,69,0.3);
+}
+
+/* ==================================================
+   FORM BOX
+================================================== */
+.form-box{
+    background:#fff;
+    max-width:420px;
+    margin:60px auto;
+    padding:35px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.form-box h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:var(--primary);
+}
+
+label{
+    font-weight:600;
+    margin-top:12px;
+    display:block;
+}
+
+input, textarea{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+footer{
+    background:var(--dark);
+    color:#e5e7eb;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media(max-width:768px){
+    .navbar{
+        padding:16px 20px;
+    }
+    .hero h1{
+        font-size:32px;
+    }
+}
+</style>
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <header>
-    <nav class="navbar">
-        <div class="logo">HealthCare+</div>
-        <ul class="nav-links">
-            <li><a href="register.html">Home</a></li>
-            <li><a href="register.html">Govt Schemes</a></li>
-            <li><a href="register.html">Ambulance</a></li>
-            <li><a href="register.html">Medical Camps</a></li>
-            <li><a href="register.html">Diseases</a></li>
-            <li><a href="register.html">Feedback</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <div class="logo">HealthCare+</div>
+    <ul class="nav-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('register')">Register</a></li>
+    </ul>
+</nav>
 </header>
 
-<!-- ================= HERO SECTION ================= -->
+<!-- ================= HOME ================= -->
+<div id="home" class="page active">
+
 <section class="hero">
     <h1>Healthcare Access for Industrial & Tribal Communities</h1>
-    <p>
-        A unified digital platform providing emergency medical help,
-        government healthcare schemes, disease awareness, and medical camps.
-    </p>
-
-    <button class="btn-primary" id="registerBtn">
+    <p>Emergency medical help, government schemes, disease awareness and doctor consultation.</p>
+    <button class="btn btn-primary" onclick="showPage('register')">
         Request Ambulance
     </button>
 </section>
 
-<!-- ================= SERVICES ================= -->
 <section class="services">
     <h2>Our Services</h2>
-    <p class="section-subtitle">
-        Click any service to register and access healthcare support
-    </p>
+    <p class="section-subtitle">Click any service to continue</p>
 
-    <!-- 🔴 PRIORITY DOCTOR SERVICE -->
     <div class="priority-service">
-        <h3>👨‍⚕️ Doctor Service</h3>
-        <p>
-            Immediate medical consultation and guidance from qualified doctors.
-            This service is prioritized for urgent health concerns.
-        </p>
-        <button class="btn-priority" id="doctorHelpBtn">
-            Get Doctor Help Now
+        <h3>Doctor Service (Priority)</h3>
+        <p>Immediate consultation for urgent health issues.</p>
+        <button class="btn btn-primary" onclick="showPage('doctor')">
+            Get Doctor Help
         </button>
     </div>
 
-    <!-- NORMAL SERVICES -->
     <div class="service-grid">
-
-        <div class="card">
-            <h3>🚑 Ambulance Rescue</h3>
-            <p>Quick emergency ambulance request system for critical situations.</p>
-        </div>
-
-        <div class="card">
-            <h3>🏥 Govt Medical Schemes</h3>
-            <p>Search and explore government healthcare programs and benefits.</p>
-        </div>
-
-        <div class="card">
-            <h3>🩺 Medical Camps</h3>
-            <p>Information about free health camps and vaccination drives.</p>
-        </div>
-
-        <div class="card">
-            <h3>🦠 Disease Awareness</h3>
-            <p>Guidance on viral & seasonal diseases with preventive care tips.</p>
-        </div>
-
+        <div class="card" onclick="showPage('register')">🚑 Ambulance Service</div>
+        <div class="card" onclick="showPage('register')">🏥 Govt Schemes</div>
+        <div class="card" onclick="showPage('register')">🩺 Medical Camps</div>
+        <div class="card" onclick="showPage('register')">🦠 Disease Awareness</div>
     </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-    <p>© 2025 Healthcare Support Platform | Designed for Social Impact</p>
-</footer>
+<footer>© 2026 Healthcare Support Platform</footer>
+</div>
 
-<!-- ================= SCRIPT ================= -->
+<!-- ================= REGISTER ================= -->
+<div id="register" class="page">
+<div class="form-box">
+<h2>User Registration</h2>
+<form>
+<label>Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Phone</label>
+<input type="tel" pattern="[0-9]{10}" required>
+
+<label>Age</label>
+<input type="number" required>
+
+<button class="btn btn-primary">Register</button>
+</form>
+</div>
+</div>
+
+<!-- ================= DOCTOR ================= -->
+<div id="doctor" class="page">
+<div class="form-box">
+<h2>AI Doctor Consultation</h2>
+
+<form id="aiForm">
+<label>Disease</label>
+<input type="text" required>
+
+<label>Symptoms</label>
+<textarea rows="4" required></textarea>
+
+<button class="btn btn-primary">Submit</button>
+<button type="button" class="btn btn-danger" onclick="showPage('home')">Back</button>
+</form>
+</div>
+</div>
+
 <script>
-    // Hero button → Registration page
-    document.getElementById("registerBtn").onclick = function () {
-        window.location.href = "register.html";
-    };
-
-    // Service cards → Registration page
-    document.querySelectorAll(".card").forEach(function (card) {
-        card.onclick = function () {
-            window.location.href = "register.html";
-        };
+function showPage(id){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
     });
+    document.getElementById(id).classList.add("active");
+}
 
-    // 🔴Doctor  Help Button → Doctor Choice page
-    document.getElementById("doctorHelpBtn").onclick = function () {
-        window.location.href = "doctor-choice.html";
-    };
+document.getElementById("aiForm").onsubmit=function(e){
+    e.preventDefault();
+    alert("AI Doctor request submitted");
+};
 </script>
 
 </body>
