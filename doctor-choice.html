@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Consultation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #f4f7fa;
+        }
+
+        /* ---------- COMMON ---------- */
+        h2 {
+            text-align: center;
+            color: #0b5ed7;
+            margin-bottom: 30px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* ---------- PAGE 1 : DOCTOR SELECTION ---------- */
+        #selectionPage {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .doctor-box {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .doctor-card {
+            background: #ffffff;
+            width: 260px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .doctor-card h3 {
+            color: #0b5ed7;
+        }
+
+        /* ---------- PAGE 2 : AI DOCTOR ---------- */
+        #aiDoctorPage {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b5ed7, #198754);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ai-box {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #ffc107;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background: #0b5ed7;
+            color: #fff;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<div id="selectionPage">
+    <h2>Select Doctor Type</h2>
+
+    <div class="doctor-box">
+
+        <div class="doctor-card" onclick="selectPhysicalDoctor()">
+            <h3>👨‍⚕️ Physical Doctor</h3>
+            <p>Consult a nearby physical doctor or hospital.</p>
+        </div>
+
+        <div class="doctor-card" onclick="selectAIDoctor()">
+            <h3>🤖 AI Doctor</h3>
+            <p>Get instant AI-based medical guidance.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div id="aiDoctorPage">
+    <div class="ai-box">
+        <h2>🤖 AI Doctor Consultation</h2>
+
+        <form id="aiDoctorForm">
+
+            <label>Disease Name</label>
+            <input type="text" id="disease" placeholder="e.g. Fever" required>
+
+            <label>Symptoms</label>
+            <textarea id="symptoms" rows="4" placeholder="Describe symptoms..." required></textarea>
+
+            <button class="submit-btn" type="submit">
+                Submit to AI Doctor
+            </button>
+
+            <button type="button" class="back-btn" onclick="goBack()">
+                ⬅ Back
+            </button>
+
+            <div class="note">
+                This AI guidance is not a replacement for a real doctor.
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function selectPhysicalDoctor() {
+        alert("Physical Doctor selected.\nFeature can be expanded later.");
+    }
+
+    function selectAIDoctor() {
+        document.getElementById("selectionPage").style.display = "none";
+        document.getElementById("aiDoctorPage").style.display = "flex";
+    }
+
+    function goBack() {
+        document.getElementById("aiDoctorPage").style.display = "none";
+        document.getElementById("selectionPage").style.display = "block";
+    }
+
+    document.getElementById("aiDoctorForm").onsubmit = function (e) {
+        e.preventDefault();
+
+        const disease = document.getElementById("disease").value;
+        const symptoms = document.getElementById("symptoms").value;
+
+        console.log("AI Doctor Data:");
+        console.log("Disease:", disease);
+        console.log("Symptoms:", symptoms);
+
+        alert("Details sent to AI Doctor.\n(Check console output)");
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthcare Support Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+    <nav class="navbar">
+        <div class="logo">HealthCare+</div>
+        <ul class="nav-links">
+            <li><a href="register.html">Home</a></li>
+            <li><a href="register.html">Govt Schemes</a></li>
+            <li><a href="register.html">Ambulance</a></li>
+            <li><a href="register.html">Medical Camps</a></li>
+            <li><a href="register.html">Diseases</a></li>
+            <li><a href="register.html">Feedback</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+    <h1>Healthcare Access for Industrial & Tribal Communities</h1>
+    <p>
+        A unified digital platform providing emergency medical help,
+        government healthcare schemes, disease awareness, and medical camps.
+    </p>
+
+    <button class="btn-primary" id="registerBtn">
+        Request Ambulance
+    </button>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services">
+    <h2>Our Services</h2>
+    <p class="section-subtitle">
+        Click any service to register and access healthcare support
+    </p>
+
+    <!-- 🔴 PRIORITY DOCTOR SERVICE -->
+    <div class="priority-service">
+        <h3>👨‍⚕️ Doctor Service</h3>
+        <p>
+            Immediate medical consultation and guidance from qualified doctors.
+            This service is prioritized for urgent health concerns.
+        </p>
+        <button class="btn-priority" id="doctorHelpBtn">
+            Get Doctor Help Now
+        </button>
+    </div>
+
+    <!-- NORMAL SERVICES -->
+    <div class="service-grid">
+
+        <div class="card">
+            <h3>🚑 Ambulance Rescue</h3>
+            <p>Quick emergency ambulance request system for critical situations.</p>
+        </div>
+
+        <div class="card">
+            <h3>🏥 Govt Medical Schemes</h3>
+            <p>Search and explore government healthcare programs and benefits.</p>
+        </div>
+
+        <div class="card">
+            <h3>🩺 Medical Camps</h3>
+            <p>Information about free health camps and vaccination drives.</p>
+        </div>
+
+        <div class="card">
+            <h3>🦠 Disease Awareness</h3>
+            <p>Guidance on viral & seasonal diseases with preventive care tips.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2025 Healthcare Support Platform | Designed for Social Impact</p>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+    // Hero button → Registration page
+    document.getElementById("registerBtn").onclick = function () {
+        window.location.href = "register.html";
+    };
+
+    // Service cards → Registration page
+    document.querySelectorAll(".card").forEach(function (card) {
+        card.onclick = function () {
+            window.location.href = "register.html";
+        };
+    });
+
+    // 🔴Doctor  Help Button → Doctor Choice page
+    document.getElementById("doctorHelpBtn").onclick = function () {
+        window.location.href = "doctor-choice.html";
+    };
+</script>
+
+</body>
+</html>
